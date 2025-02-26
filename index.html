@@ -218,7 +218,7 @@
             maxNativeZoom: 19
         });
         layer_OpenStreetMap_0;
-        map.addLayer(layer_OpenStreetMap_0);
+        //map.addLayer(layer_OpenStreetMap_0);
 
         var layer_OpenTopoMap_0 = L.tileLayer('https://tile.opentopomap.org/{z}/{x}/{y}.png', {
             opacity: 1.0,
@@ -244,6 +244,20 @@
         });
         layer_dtk_0;
         //map.addLayer(layer_dtk_0);
+
+	var layer_spw_0 = L.tileLayer.wms('https://geodaten.metropoleruhr.de/spw2/service', {
+            layers: 'spw2_light',
+            format: 'image/png',
+            opacity: 1,
+            attribution: '',
+            transparent: 'true',
+            minZoom: 6,
+            maxZoom: 30,
+            minNativeZoom: 6,
+            maxNativeZoom: 30
+        });
+        layer_spw_0;
+        map.addLayer(layer_spw_0);
 
 	var layer_dtk25_0 = L.tileLayer.wms('https://www.wms.nrw.de/geobasis/wms_nw_dtk25', {
             layers: 'nw_dtk25_col',
@@ -286,7 +300,8 @@
         
         var baseMaps = {};
         L.control.layers({
-            "OpenStreetMap": layer_OpenStreetMap_0,
+            "SPW2": layer_spw_0,
+	    "OpenStreetMap": layer_OpenStreetMap_0,
 	    "OpenTopoMap": layer_OpenTopoMap_0,
 	    "Google Hybrid": layer_google_0,
 	    "DTK": layer_dtk_0,
