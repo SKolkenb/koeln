@@ -53,7 +53,7 @@
             zoomControl:true, maxZoom:21, minZoom:6, doubleClickZoom: false
         }).fitBounds([[50.90,6.92],[50.96,6.98]]);
         var hash = new L.Hash(map);
-        map.attributionControl.setPrefix('<a href="#">S.Kolkenbrock</a> &middot; <a href="https://leafletjs.com">Leaflet</a> &middot; <a>OSM</a>');
+        map.attributionControl.setPrefix('<a href="#">S.Kolkenbrock | MHD</a> &middot; <a href="https://leafletjs.com">Leaflet</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
         var locator = new L.control.locate({locateOptions: {maxZoom: 17}}).addTo(map);
 	//locator.start();
@@ -159,7 +159,7 @@
             format: 'image/png',
             opacity: 0.5,
             transparent: 'true',
-            attribution: '',
+            attribution: 'DWD',
             minZoom: 6,
             maxZoom: 21,
             minNativeZoom: 0,
@@ -173,7 +173,7 @@
             format: 'image/png',
             transparent: 'true',
             opacity: 0.5,
-            attribution: '',
+            attribution: 'DWD',
             minZoom: 6,
             maxZoom: 21,
             minNativeZoom: 0,
@@ -186,7 +186,7 @@
             layers: 'Waldwege_(für_Lösch-_und_Rettungsfahrzeuge)64455',
             format: 'image/png',
             opacity: 1,
-            attribution: '',
+            attribution: 'Land NRW',
             transparent: 'true',
             minZoom: 6,
             maxZoom: 21,
@@ -199,7 +199,7 @@
             layers: 'WMS_NW_UTMREF',
             format: 'image/png',
             opacity: 1,
-            attribution: '',
+            attribution: 'Land NRW',
             transparent: 'true',
             minZoom: 6,
             maxZoom: 21,
@@ -271,11 +271,20 @@
             maxNativeZoom: 21
         });
         layer_gitter_1;
+
+	var layer_ea_grenzen_1 = L.tileLayer('ea_grenzen/{z}/{x}/{y}.png', {
+            opacity: 1,
+            minZoom: 6,
+            maxZoom: 21,
+            minNativeZoom: 14,
+            maxNativeZoom: 21
+        });
+        layer_ea_grenzen_1;
        
             
         var layer_OpenStreetMap_0 = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             opacity: 1.0,
-            attribution: '',
+            attribution: 'OSM',
             minZoom: 6,
             maxZoom: 21,
             minNativeZoom: 0,
@@ -286,7 +295,7 @@
 
         var layer_OpenTopoMap_0 = L.tileLayer('https://tile.opentopomap.org/{z}/{x}/{y}.png', {
             opacity: 1.0,
-            attribution: '',
+            attribution: 'Kartendaten: © OpenStreetMap-Mitwirkende, SRTM | Kartendarstellung: © OpenTopoMap (CC-BY-SA)',
             minZoom: 6,
             maxZoom: 21,
             minNativeZoom: 0,
@@ -299,7 +308,7 @@
             layers: 'nw_dtk_col',
             format: 'image/png',
             opacity: 1,
-            attribution: '',
+            attribution: 'Land NRW',
             transparent: 'true',
             minZoom: 6,
             maxZoom: 21,
@@ -313,7 +322,7 @@
             layers: 'spw2_light',
             format: 'image/png',
             opacity: 1,
-            attribution: '',
+            attribution: 'Geodatendienst Metropole Ruhr',
             transparent: 'true',
             minZoom: 6,
             maxZoom: 21,
@@ -327,7 +336,7 @@
             layers: 'nw_dtk25_col',
             format: 'image/png',
             opacity: 1,
-            attribution: '',
+            attribution: 'Land NRW',
             transparent: 'true',
             minZoom: 6,
             maxZoom: 21,
@@ -341,7 +350,7 @@
             layers: 'nw_dtk50_col',
             format: 'image/png',
             opacity: 1,
-            attribution: '',
+            attribution: 'Land NRW',
             transparent: 'true',
             minZoom: 6,
             maxZoom: 21,
@@ -353,7 +362,7 @@
 
 	var layer_google_0 = L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
             opacity: 1.0,
-            attribution: '',
+            attribution: 'Google Maps',
             minZoom: 6,
             maxZoom: 21,
             minNativeZoom: 0,
@@ -378,6 +387,7 @@
 	    "DTK50": layer_dtk50_0
         },{
         	"Planquadrate": layer_gitter_1,
+		"Einsatzabschnittsgrenzen": layer_ea_grenzen_1,
 		"Zugweg SVZ": layer_zugweg_svz_1,
 		"UHS SVZ": layer_uhs_svz_1,
 		"Logistikstellen SVZ":layer_log_svz_1,
