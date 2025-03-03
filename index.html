@@ -209,7 +209,16 @@
         layer_mgrs_1;
         //map.addLayer(layer_mgrs_1);
 
-	var layer_zugweg_rmz_1 = L.tileLayer('zugweg_rmz/{z}/{x}/{y}.png', {
+	var layer_uav_rmz_1 = L.tileLayer('uav1/{z}/{x}/{y}.png', {
+            opacity: 0.75,
+            minZoom: 6,
+            maxZoom: 21,
+            minNativeZoom: 14,
+            maxNativeZoom: 21
+        });
+        layer_uav_rmz_1;
+		
+		var layer_zugweg_rmz_1 = L.tileLayer('zugweg_rmz/{z}/{x}/{y}.png', {
             opacity: 0.75,
             minZoom: 6,
             maxZoom: 21,
@@ -394,6 +403,7 @@
 		"Zugweg RMZ": layer_zugweg_rmz_1,
 		"UHS RMZ": layer_uhs_rmz_1,
 		"Logistikstellen RMZ":layer_log_rmz_1,
+		"UAV RMZ": layer_uav_rmz_1,
             "LKW-befahrbare Waldwege": layer_lkw_1,
             "UTMREF / MGRS": layer_mgrs_1,
             "Wetterwarnungen": layer_warnung_3,
